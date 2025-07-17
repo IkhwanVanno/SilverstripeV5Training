@@ -1,11 +1,24 @@
-<div class="video-search-page container">
-    <div class="search-from">
-        $VideoSearchForm
+<main class="py-5">
+  <div class="container">
+    <!-- Search Form -->
+    <div class="row justify-content-center mb-4">
+        <div class="card p-4 shadow-sm">
+            $VideoSearchForm
+        </div>
     </div>
 
-    <div class="search-results mt-4">
+    <!-- Search Results -->
+    <div class="row">
+      <div class="col-12">
         <% include VideoSearchResults %>
-
-        <% include Pagination PaginatedList=$Results %>
+      </div>
     </div>
-</div>
+
+    <!-- Pagination -->
+    <div class="row mt-4">
+      <div class="col-12 d-flex justify-content-center">
+        <% include Pagination PaginatedList=$Results %>
+      </div>
+    </div>
+  </div>
+</main>

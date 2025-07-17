@@ -22,19 +22,17 @@ Change it, enhance it and most importantly enjoy it!
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<% require themedCSS('reset') %>
-	<% require themedCSS('typography') %>
-	<% require themedCSS('form') %>
-	<% require themedCSS('layout') %>
+	<%-- <% require themedCSS('reset') %> --%>
+	<%-- <% require themedCSS('typography') %> --%>
+	<%-- <% require themedCSS('form') %> --%>
+	<%-- <% require themedCSS('layout') %> --%>
 	<link rel="shortcut icon" href="$resourceURL('themes/simple/images/favicon.ico')" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
-<body class="$ClassName.ShortName<% if not $Menu(2) %> no-sidebar<% end_if %>" <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %>>
+<body class="$ClassName.ShortName<% if not $Menu(2) %> no-sidebar<% end_if %>" <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %> %>
 	<% include Header %>
-	<div class="main" role="main">
-		<div class="inner typography line">
-			$Layout
-		</div>
+	<div class="main m-0 p-0" role="main">
+		$Layout
 	</div>
 	<% include Footer %>
 	

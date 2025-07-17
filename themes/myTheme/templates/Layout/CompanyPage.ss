@@ -1,0 +1,249 @@
+<main>
+      <!-- Hero Section -->
+      <section id="hero">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                  <% if $HeroImage %>
+                  <img
+                  src="$HeroImage.URL"
+                  class="d-block w-100"
+                  alt="Hero Image"
+                  />
+                  <% else %>
+                  <img
+                  src="./src/sample1.png"
+                  class="d-block w-100"
+                  alt="Hero Image"
+                  />
+                  <% end_if %>
+                  <div class="carousel-caption d-none d-md-block">
+                  <h5>$HeroTitle.XML</h5>
+                  <p>$HeroSubtitle.XML</p>
+                  </div>
+            </div>
+            </div>
+            </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section py-5">
+            <div class="container">
+            <div class="row align-items-center">
+            <!-- Kiri: Gambar -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                  <% if $AboutImage %>
+                  <img
+                  src="$AboutImage.URL"
+                  alt="About Image"
+                  class="img-fluid rounded shadow"
+                  />
+                  <% else %>
+                  <img
+                  src="./src/sample2.png"
+                  alt="About Image"
+                  class="img-fluid rounded shadow"
+                  />
+                  <% end_if %>
+            </div>
+
+            <!-- Kanan: Teks -->
+            <div class="col-md-6">
+                  <h2 class="mb-3">$AboutTitle.XML</h2>
+                  $AboutContent
+                  <a href="#contact" class="btn btn-primary mt-3">Hubungi Kami</a>
+            </div>
+            </div>
+            </div>
+      </section>
+
+      <!-- Service Section -->
+      <section id="services" class="services-section py-5 bg-light">
+            <div class="container">
+            <h2 class="text-center mb-5">Layanan Kami</h2>
+            <div class="row g-4">
+            <% loop $ServiceCards %>
+            <div class="col-md-4">
+                  <div class="card h-100 shadow-sm">
+                  <div class="card-body text-center">
+                  <h5 class="card-title">$Title.XML</h5>
+                  <p class="card-text">$Content.XML</p>
+                  </div>
+                  </div>
+            </div>
+            <% end_loop %>
+            </div>
+            </div>
+      </section>
+
+      <!-- Portofolio Section -->
+      <section id="portfolio" class="portfolio-section py-5">
+            <div class="container">
+            <h2 class="text-center mb-5">Portfolio Kami</h2>
+            <div class="row g-4">
+            <% loop $PortfolioItems %>
+            <div class="col-md-4 col-sm-6">
+                  <% if $Image %>
+                  <img
+                  src="$Image.URL"
+                  class="img-fluid rounded shadow-sm"
+                  alt="$Title.XML"
+                  />
+                  <% else %>
+                  <img
+                  src="./src/sample3.png"
+                  class="img-fluid rounded shadow-sm"
+                  alt="Portfolio Item"
+                  />
+                  <% end_if %>
+                  <% if $Title %>
+                  <div class="mt-2">
+                  <h6>$Title.XML</h6>
+                  <% if $Description %>
+                  <small class="text-muted">$Description.XML</small>
+                  <% end_if %>
+                  </div>
+                  <% end_if %>
+            </div>
+            <% end_loop %>
+            </div>
+            </div>
+      </section>
+
+      <!-- Testimonial Section -->
+      <section id="testimonial" class="testimonial-section py-5 bg-light">
+            <div class="container">
+            <h2 class="text-center mb-5">Testimoni Klien</h2>
+            <div class="row g-4">
+            <% loop $Testimonials %>
+            <div class="col-md-4">
+                  <div class="card h-100 shadow-sm p-3">
+                  <div class="d-flex align-items-center mb-3">
+                  <% if $Photo %>
+                  <img
+                        src="$Photo.URL"
+                        class="rounded-circle me-3"
+                        alt="$Name.XML"
+                        style="width: 60px; height: 60px; object-fit: cover"
+                  />
+                  <% else %>
+                  <img
+                        src="./src/Person (1).jpg"
+                        class="rounded-circle me-3"
+                        alt="Client"
+                        style="width: 60px; height: 60px; object-fit: cover"
+                  />
+                  <% end_if %>
+                  <div>
+                        <h6 class="mb-0">$Name.XML</h6>
+                        <small class="text-muted">$Role.XML</small>
+                  </div>
+                  </div>
+                  <p class="mb-0">$Message.XML</p>
+                  </div>
+            </div>
+            <% end_loop %>
+            </div>
+            </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="team" class="team-section py-5 bg-white">
+            <div class="container">
+            <h2 class="text-center mb-5">Tim Kami</h2>
+            <div class="row g-4 justify-content-center">
+            <% loop $TeamMembers %>
+            <div class="col-md-3 col-sm-6">
+                  <div class="card text-center shadow-sm p-3">
+                  <% if $Photo %>
+                  <img
+                  src="$Photo.URL"
+                  alt="$Name.XML"
+                  class="rounded-circle mx-auto"
+                  style="width: 100px; height: 100px; object-fit: cover"
+                  />
+                  <% else %>
+                  <img
+                  src="./src/Person (2).jpg"
+                  alt="Team Member"
+                  class="rounded-circle mx-auto"
+                  style="width: 100px; height: 100px; object-fit: cover"
+                  />
+                  <% end_if %>
+                  <div class="card-body">
+                  <h5 class="card-title mb-1">$Name.XML</h5>
+                  <p class="text-muted small">$Position.XML</p>
+                  </div>
+                  </div>
+            </div>
+            <% end_loop %>
+            </div>
+            </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section py-5 bg-light">
+            <div class="container">
+            <h2 class="text-center mb-5">Hubungi Kami</h2>
+            <div class="row">
+            <!-- Form Kontak -->
+            <div class="col-md-6">
+                  <form>
+                  <div class="mb-3">
+                  <label for="name" class="form-label">Nama</label>
+                  <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Masukkan nama Anda"
+                  />
+                  </div>
+                  <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Masukkan email Anda"
+                  />
+                  </div>
+                  <div class="mb-3">
+                  <label for="message" class="form-label">Pesan</label>
+                  <textarea
+                        class="form-control"
+                        id="message"
+                        rows="5"
+                        placeholder="Tulis pesan Anda"
+                  ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                  Kirim Pesan
+                  </button>
+                  </form>
+            </div>
+
+            <!-- Informasi Kontak -->
+            <div class="col-md-6 mt-4 mt-md-0">
+                  <div class="ps-md-4">
+                  <h5>Informasi Kontak</h5>
+                  <% if $ContactAddress %>
+                  <p><strong>Alamat:</strong> $ContactAddress.XML</p>
+                  <% end_if %>
+                  <% if $ContactEmail %>
+                  <p><strong>Email:</strong> $ContactEmail.XML</p>
+                  <% end_if %>
+                  <% if $ContactPhone %>
+                  <p><strong>Telepon:</strong> $ContactPhone.XML</p>
+                  <% end_if %>
+                  <% if $ContactHours %>
+                  <p><strong>Jam Operasional:</strong> $ContactHours.XML</p>
+                  <% end_if %>
+                  <% if $ContactInfo %>
+                  $ContactInfo
+                  <% end_if %>
+                  </div>
+            </div>
+            </div>
+            </div>
+      </section>
+</main>

@@ -1,14 +1,20 @@
 <% if $Results %>
-      <% loop $Results %>
-            <a class="d-flex my-2" href="$VideoPage.Link">
-                  <div class="col-5">
-                        $VideoThumbnail.Fill(350, 225)
-                  </div>
-                  <div class="col-7">
-                        <h2>$Title</h2>
-                  </div>
-            </a>
-      <% end_loop %>
+  <div class="container">
+    <% loop $Results %>
+      <a href="$VideoPage.Link" class="text-decoration-none text-dark">
+        <div class="row g-3 align-items-center mb-3 p-2">
+          <div class="col-md-5">
+            <img src="$VideoThumbnail.Fill(350, 225).URL" alt="$Title" class="img-fluid rounded">
+          </div>
+          <div class="col-md-7">
+            <h5 class="mb-1">$Title</h5>
+          </div>
+        </div>
+      </a>
+    <% end_loop %>
+  </div>
 <% else %>
-<p>No Result found</p>
+  <div class="container text-center mt-4">
+    <p class="text-muted">No Result found</p>
+  </div>
 <% end_if %>
