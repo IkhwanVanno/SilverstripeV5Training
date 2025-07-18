@@ -6,3 +6,5 @@ SilverStripe\View\SSViewer:
     - "$public"
     - "mytheme"
     - "$default"
+  extension:
+    - SiteConfigExt

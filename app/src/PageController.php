@@ -2,6 +2,8 @@
 
 namespace {
 
+    use SilverStripe\SiteConfig\SiteConfig;
+
     use SilverStripe\CMS\Controllers\ContentController;
     use SilverStripe\View\Requirements;
 
@@ -32,8 +34,42 @@ namespace {
         {
             parent::init();
             Requirements::javascript('themes\myTheme\javascript\pagination.js', ['defer' => true]);
-            // You can include any CSS or JS required by your project here.
-            // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
+
+            $this->customise([
+                'SiteConfig' => SiteConfig::current_site_config(),
+            ]);
+        }
+
+        /**
+         * Ambil SiteConfig untuk digunakan di template
+         * @return SiteConfig
+         */
+        public function getSiteConfig()
+        {
+            return SiteConfig::current_site_config();
+        }
+
+        /**
+         * Ambil favicon URL
+         * @return string|null
+         */
+        public function getFaviconURL()
+        {
+            $config = SiteConfig::current_site_config();
+            if ($config->FaviconImage() && $config->FaviconImage()->exists()) {
+                return $config->FaviconImage()->URL;
+            }
+            return null;
+        }
+
+        /**
+         * Cek apakah favicon tersedia
+         * @return bool
+         */
+        public function hasFavicon()
+        {
+            $config = SiteConfig::current_site_config();
+            return $config->FaviconImage() && $config->FaviconImage()->exists();
         }
     }
 }

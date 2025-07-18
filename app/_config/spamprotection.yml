@@ -5,5 +5,5 @@ SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
   default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NoCaptchaProtector
 
 UndefinedOffset\NoCaptcha\Forms\NoCaptchaField:
-  site_key: ""
-  secret_key: ""
+  site_key: "6LdCC4crAAAAAMblLz3wiEym-wQoAuPveTrPH692 "
+  secret_key: "6LdCC4crAAAAAJ3F5-PNVYBuCMA6UfTOwBqDH3DT"

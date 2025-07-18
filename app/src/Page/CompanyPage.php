@@ -38,11 +38,6 @@ class CompanyPage extends Page
             'HeroSubtitle' => 'Text',
             'AboutTitle' => 'Varchar',
             'AboutContent' => 'HTMLText',
-            'ContactInfo' => 'HTMLText',
-            'ContactAddress' => 'Text',
-            'ContactEmail' => 'Varchar',
-            'ContactPhone' => 'Varchar',
-            'ContactHours' => 'Text',
       ];
 
       public function getCMSFields()
@@ -75,14 +70,6 @@ class CompanyPage extends Page
 
             $fields->addFieldsToTab('Root.Team', [
                   GridField::create('TeamMembers', 'Anggota Tim', $this->TeamMembers(), GridFieldConfig_RecordEditor::create())
-            ]);
-
-            $fields->addFieldsToTab('Root.Contact', [
-                  TextField::create('ContactAddress', 'Alamat'),
-                  TextField::create('ContactEmail', 'Email'),
-                  TextField::create('ContactPhone', 'Telepon'),
-                  TextareaField::create('ContactHours', 'Jam Operasional'),
-                  HTMLEditorField::create('ContactInfo', 'Informasi Kontak Tambahan'),
             ]);
 
             return $fields;

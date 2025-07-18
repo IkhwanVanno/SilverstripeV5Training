@@ -3,11 +3,8 @@
     <div class="row">
       <!-- Kolom 1: Tentang -->
       <div class="col-md-4 mb-4">
-        <h5>Tentang Kami</h5>
-        <p>
-          Kami adalah tim profesional yang berkomitmen memberikan solusi
-          digital terbaik bagi bisnis Anda.
-        </p>
+        <h5>$AboutTitle.XML</h5>
+        <p>$AboutContent</p>
       </div>
 
       <!-- Kolom 2: Navigasi (Dynamic dari SilverStripe) -->
@@ -21,9 +18,21 @@
       <!-- Kolom 3: Kontak -->
       <div class="col-md-4 mb-4">
         <h5>Kontak</h5>
-        <p><i class="bi bi-envelope"></i> info@perusahaan.com</p>
-        <p><i class="bi bi-phone"></i> +62 812 3456 7890</p>
-        <p><i class="bi bi-geo-alt"></i> Surabaya, Indonesia</p>
+        <% if $SiteConfig.ContactAddress %>
+        <p><strong>Alamat:</strong> $SiteConfig.ContactAddress.XML</p>
+        <% end_if %>
+        
+        <% if $SiteConfig.ContactEmail %>
+        <p><strong>Email:</strong> 
+              <a href="mailto:$SiteConfig.ContactEmail.XML">$SiteConfig.ContactEmail.XML</a>
+        </p>
+        <% end_if %>
+        
+        <% if $SiteConfig.ContactPhone %>
+        <p><strong>Telepon:</strong> 
+              <a href="tel:$SiteConfig.ContactPhone.XML">$SiteConfig.ContactPhone.XML</a>
+        </p>
+        <% end_if %>
       </div>
     </div>
 

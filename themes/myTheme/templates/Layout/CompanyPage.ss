@@ -18,7 +18,7 @@
                   />
                   <% end_if %>
                   <div class="carousel-caption d-none d-md-block">
-                  <h5>$HeroTitle.XML</h5>
+                  <h1>$HeroTitle.XML</h1>
                   <p>$HeroSubtitle.XML</p>
                   </div>
             </div>
@@ -188,58 +188,88 @@
             <div class="row">
             <!-- Form Kontak -->
             <div class="col-md-6">
-                  <form>
+            <% if $Session.FormMessage %>
+                  <div class="alert alert-info" role="alert">
+                        $Session.FormMessage
+                  </div>
+            <% end_if %>
+            <form action="$Link/emailReceive" method="POST">
                   <div class="mb-3">
-                  <label for="name" class="form-label">Nama</label>
-                  <input
+                        <label for="name" class="form-label">Nama</label>
+                        <input
                         type="text"
                         class="form-control"
                         id="name"
+                        name="name"
                         placeholder="Masukkan nama Anda"
-                  />
+                        required
+                        />
                   </div>
                   <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
+                        <label for="email" class="form-label">Email</label>
+                        <input
                         type="email"
                         class="form-control"
                         id="email"
+                        name="email"
                         placeholder="Masukkan email Anda"
-                  />
+                        required
+                        />
                   </div>
                   <div class="mb-3">
-                  <label for="message" class="form-label">Pesan</label>
-                  <textarea
+                        <label for="message" class="form-label">Pesan</label>
+                        <textarea
                         class="form-control"
                         id="message"
+                        name="message"
                         rows="5"
                         placeholder="Tulis pesan Anda"
-                  ></textarea>
+                        required
+                        ></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary">
-                  Kirim Pesan
+                        Kirim Pesan
                   </button>
-                  </form>
+                  
+                  <!-- Security Token SilverStripe -->
+                  <input type="hidden" name="SecurityID" value="$SecurityID" />
+            </form>
             </div>
 
             <!-- Informasi Kontak -->
             <div class="col-md-6 mt-4 mt-md-0">
-                  <div class="ps-md-4">
+            <div class="ps-md-4">
                   <h5>Informasi Kontak</h5>
-                  <% if $ContactAddress %>
-                  <p><strong>Alamat:</strong> $ContactAddress.XML</p>
+                  
+                  <% if $SiteConfig.ContactAddress %>
+                  <p><strong>Alamat:</strong> $SiteConfig.ContactAddress.XML</p>
                   <% end_if %>
-                  <% if $ContactEmail %>
-                  <p><strong>Email:</strong> $ContactEmail.XML</p>
+                  
+                  <% if $SiteConfig.ContactEmail %>
+                  <p><strong>Email:</strong> 
+                        <a href="mailto:$SiteConfig.ContactEmail.XML">$SiteConfig.ContactEmail.XML</a>
+                  </p>
                   <% end_if %>
-                  <% if $ContactPhone %>
-                  <p><strong>Telepon:</strong> $ContactPhone.XML</p>
+                  
+                  <% if $SiteConfig.ContactPhone %>
+                  <p><strong>Telepon:</strong> 
+                        <a href="tel:$SiteConfig.ContactPhone.XML">$SiteConfig.ContactPhone.XML</a>
+                  </p>
                   <% end_if %>
-                  <% if $ContactHours %>
-                  <p><strong>Jam Operasional:</strong> $ContactHours.XML</p>
+                  
+                  <% if $SiteConfig.ContactHours %>
+                  <p><strong>Jam Operasional:</strong><br>
+                        <span class="text-muted">$SiteConfig.ContactHours.XML</span>
+                  </p>
                   <% end_if %>
-                  <% if $ContactInfo %>
-                  $ContactInfo
+                  
+                  <% if $SiteConfig.ContactInfo %>
+                  <div class="mt-3">
+                        <strong>Informasi Tambahan:</strong>
+                        <div class="mt-2">
+                              $SiteConfig.ContactInfo
+                        </div>
+                  </div>
                   <% end_if %>
                   </div>
             </div>

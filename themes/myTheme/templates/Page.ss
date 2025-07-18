@@ -26,7 +26,10 @@ Change it, enhance it and most importantly enjoy it!
 	<%-- <% require themedCSS('typography') %> --%>
 	<%-- <% require themedCSS('form') %> --%>
 	<%-- <% require themedCSS('layout') %> --%>
-	<link rel="shortcut icon" href="$resourceURL('themes/simple/images/favicon.ico')" />
+	<% if $SiteConfig.FaviconImage %>
+	<link rel="icon" type="image/x-icon" href="$SiteConfig.FaviconImage.URL">
+	<link rel="shortcut icon" type="image/x-icon" href="$SiteConfig.FaviconImage.URL">
+	<% end_if %>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 <body class="$ClassName.ShortName<% if not $Menu(2) %> no-sidebar<% end_if %>" <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %> %>
