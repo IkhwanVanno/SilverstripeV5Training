@@ -6,6 +6,7 @@ namespace {
 
     use SilverStripe\CMS\Controllers\ContentController;
     use SilverStripe\View\Requirements;
+    use SilverStripe\Dev\Debug;
 
     /**
      * @template T of Page
@@ -28,7 +29,14 @@ namespace {
          *
          * @var array
          */
-        private static $allowed_actions = [];
+        private static $allowed_actions = [
+            "test" => true,
+        ];
+
+        public function test(){
+            Debug::show("Testing");
+            die();
+        }
 
         protected function init()
         {

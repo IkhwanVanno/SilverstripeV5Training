@@ -240,6 +240,7 @@
             <div class="col-md-6 mt-4 mt-md-0">
             <div class="ps-md-4">
                   <h5>Informasi Kontak</h5>
+                  <p>$nama</p>
                   
                   <% if $SiteConfig.ContactAddress %>
                   <p><strong>Alamat:</strong> $SiteConfig.ContactAddress.XML</p>

@@ -7,6 +7,13 @@ use SilverStripe\SiteConfig\SiteConfig;
 
 class CompanyPageController extends PageController
 {
+      public function index(HTTPRequest $request)
+      {
+
+            return $this->customise([
+                  "nama"=>"Budi"
+            ])->renderWith(["KantorPage", "Page"]);
+      }
 
       /**
        * Defines methods that can be called directly
@@ -18,39 +25,25 @@ class CompanyPageController extends PageController
 
       public function emailReceive(HTTPRequest $request)
       {
-            $name = htmlspecialchars($request->postVar('name') ?? '');
-            $email = filter_var($request->postVar('email'), FILTER_SANITIZE_EMAIL);
-            $message = htmlspecialchars($request->postVar('message') ?? '');
+            $name = $request->postVar('name');
+            $email = $request->postVar('email');
+            $message = $request->postVar('message');
 
-            $siteConfig = SiteConfig::current_site_config();
-            $to = $siteConfig->ContactEmail;
-
-            $subject = "Pesan Kontak dari: {$name}";
-            $body = "
-                        <html>
-                        <body>
-                              <h2>Pesan Kontak</h2>
-                              <p><strong>Nama:</strong> {$name}</p>
-                              <p><strong>Email:</strong> {$email}</p>
-                              <p><strong>Pesan:</strong><br>" . nl2br($message) . "</p>
-                        </body>
-                        </html>
-                  ";
-            $emailObj = Email::create()
-                  ->setTo($to)
+            Email::create()
+                  ->setTo(SiteConfig::current_site_config()->ContactEmail)
                   ->setFrom($email)
-                  ->setSubject($subject)
-                  ->setBody($body);
-
-            $emailSent = $emailObj->send();
-            $messageText = $emailSent
-                  ? 'Pesan berhasil dikirim!'
-                  : 'Gagal mengirim pesan!';
-
-            $this->getRequest()->getSession()->set('FormMessage', $messageText);
+                  ->setSubject("Pesan Kontak dari: {$name}")
+                  ->setHTMLTemplate('CustomEmail')
+                  ->setData([
+                        'Name' => $name,
+                        'SenderEmail' => $email,
+                        'MessageContent' => $message,
+                  ])
+                  ->send();
 
             return $this->redirectBack();
       }
+
       protected function init()
       {
             parent::init();
