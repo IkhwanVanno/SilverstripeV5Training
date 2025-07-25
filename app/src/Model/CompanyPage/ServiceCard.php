@@ -12,7 +12,7 @@ class ServiceCard extends DataObject {
     ];
 
     private static $has_one = [
-        'CompanyPage' => CompanyPage::class,
+        'Page' => Page::class,
     ];
 
     private static $summary_fields = [

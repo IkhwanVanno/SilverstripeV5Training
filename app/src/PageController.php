@@ -3,10 +3,11 @@
 namespace {
 
     use SilverStripe\SiteConfig\SiteConfig;
-
     use SilverStripe\CMS\Controllers\ContentController;
     use SilverStripe\View\Requirements;
     use SilverStripe\Dev\Debug;
+    use SilverStripe\Control\HTTPRequest;
+    use SilverStripe\Control\Email\Email;
 
     /**
      * @template T of Page
@@ -31,17 +32,13 @@ namespace {
          */
         private static $allowed_actions = [
             "test" => true,
+            'emailReceive' => true,
         ];
-
-        public function test(){
-            Debug::show("Testing");
-            die();
-        }
 
         protected function init()
         {
             parent::init();
-            Requirements::javascript('themes\myTheme\javascript\pagination.js', ['defer' => true]);
+            Requirements::javascript('themes/myTheme/javascript/pagination.js', ['defer' => true]);
 
             $this->customise([
                 'SiteConfig' => SiteConfig::current_site_config(),
@@ -79,5 +76,57 @@ namespace {
             $config = SiteConfig::current_site_config();
             return $config->FaviconImage() && $config->FaviconImage()->exists();
         }
+
+         /**
+       * Defines methods that can be called directly
+       * @var array
+       */
+
+      public function emailReceive(HTTPRequest $request)
+      {
+            $name = $request->postVar('name');
+            $email = $request->postVar('email');
+            $message = $request->postVar('message');
+
+            Email::create()
+                  ->setTo(SiteConfig::current_site_config()->ContactEmail)
+                  ->setFrom($email)
+                  ->setSubject("Pesan Kontak dari: {$name}")
+                  ->setHTMLTemplate('CustomEmail')
+                  ->setData([
+                        'Name' => $name,
+                        'SenderEmail' => $email,
+                        'MessageContent' => $message,
+                  ])
+                  ->send();
+
+            return $this->redirectBack();
+      }
+
+
+      /**
+       * Ambil data kontak untuk digunakan di template
+       * @return SiteConfig
+       */
+      public function getContactInfo()
+      {
+            return SiteConfig::current_site_config();
+      }
+
+      /**
+       * Cek apakah ada informasi kontak yang tersedia
+       * @return bool
+       */
+      public function hasContactInfo()
+      {
+            $config = SiteConfig::current_site_config();
+            return (
+                  $config->ContactAddress ||
+                  $config->ContactEmail ||
+                  $config->ContactPhone ||
+                  $config->ContactHours ||
+                  $config->ContactInfo
+            );
+      }
     }
 }

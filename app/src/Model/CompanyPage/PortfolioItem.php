@@ -15,7 +15,7 @@ class PortfolioItem extends DataObject {
 
     private static $has_one = [
         'Image' => Image::class,
-        'CompanyPage' => CompanyPage::class,
+        'Page' => Page::class,
     ];
 
     private static $owns = ['Image'];

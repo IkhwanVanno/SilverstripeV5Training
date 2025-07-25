@@ -16,7 +16,7 @@ class Testimonial extends DataObject {
 
     private static $has_one = [
         'Photo' => Image::class,
-        'CompanyPage' => CompanyPage::class,
+        'Page' => Page::class,
     ];
 
     private static $owns = ['Photo'];
