@@ -10,9 +10,11 @@ use SilverStripe\ORM\ValidationResult;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
+
 class SiteConfigExt extends DataExtension
 {
       private static $db = [
+
             'ContactAddress' => 'Text',
             'ContactEmail' => 'Varchar(255)',
             'ContactPhone' => 'Varchar(50)',
@@ -26,6 +28,7 @@ class SiteConfigExt extends DataExtension
 
       private static $owns = [
             'FaviconImage',
+
       ];
 
       private static $cascade_deletes = [
@@ -37,6 +40,8 @@ class SiteConfigExt extends DataExtension
        * @param FieldList $fields
        * @return void
        */
+
+
       public function updateCMSFields(FieldList $fields)
       {
             $fields->addFieldsToTab('Root.Main', [
