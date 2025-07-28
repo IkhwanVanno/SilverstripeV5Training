@@ -1275,16 +1275,16 @@
         },
         {
             "name": "masterminds/html5",
-            "version": "2.9.0",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Masterminds/html5-php.git",
-                "reference": "f5ac2c0b0a2eefca70b2ce32a5809992227e75a6"
+                "reference": "fcf91eb64359852f00d921887b219479b4f21251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/f5ac2c0b0a2eefca70b2ce32a5809992227e75a6",
-                "reference": "f5ac2c0b0a2eefca70b2ce32a5809992227e75a6",
+                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/fcf91eb64359852f00d921887b219479b4f21251",
+                "reference": "fcf91eb64359852f00d921887b219479b4f21251",
                 "shasum": ""
             },
             "require": {
@@ -1336,9 +1336,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Masterminds/html5-php/issues",
-                "source": "https://github.com/Masterminds/html5-php/tree/2.9.0"
+                "source": "https://github.com/Masterminds/html5-php/tree/2.10.0"
             },
-            "time": "2024-03-31T07:05:07+00:00"
+            "time": "2025-07-25T09:04:22+00:00"
         },
         {
             "name": "ml/iri",
@@ -5401,16 +5401,16 @@
         },
         {
             "name": "ua-parser/uap-php",
-            "version": "v3.9.14",
+            "version": "v3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ua-parser/uap-php.git",
-                "reference": "b796c5ea5df588e65aeb4e2c6cce3811dec4fed6"
+                "reference": "f44bdd1b38198801cf60b0681d2d842980e47af5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ua-parser/uap-php/zipball/b796c5ea5df588e65aeb4e2c6cce3811dec4fed6",
-                "reference": "b796c5ea5df588e65aeb4e2c6cce3811dec4fed6",
+                "url": "https://api.github.com/repos/ua-parser/uap-php/zipball/f44bdd1b38198801cf60b0681d2d842980e47af5",
+                "reference": "f44bdd1b38198801cf60b0681d2d842980e47af5",
                 "shasum": ""
             },
             "require": {
@@ -5458,9 +5458,9 @@
             "description": "A multi-language port of Browserscope's user agent parser.",
             "support": {
                 "issues": "https://github.com/ua-parser/uap-php/issues",
-                "source": "https://github.com/ua-parser/uap-php/tree/v3.9.14"
+                "source": "https://github.com/ua-parser/uap-php/tree/v3.10.0"
             },
-            "time": "2020-10-02T23:36:20+00:00"
+            "time": "2025-07-17T15:43:24+00:00"
         },
         {
             "name": "undefinedoffset/silverstripe-nocaptcha",
@@ -5521,16 +5521,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v15.21.2",
+            "version": "v15.21.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "1a7aac3b7f8d66fd52aa7d1b7eafad3dec1f9cb5"
+                "reference": "8404965d3834d284efb4e46f9df64b44963f2aaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/1a7aac3b7f8d66fd52aa7d1b7eafad3dec1f9cb5",
-                "reference": "1a7aac3b7f8d66fd52aa7d1b7eafad3dec1f9cb5",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/8404965d3834d284efb4e46f9df64b44963f2aaa",
+                "reference": "8404965d3834d284efb4e46f9df64b44963f2aaa",
                 "shasum": ""
             },
             "require": {
@@ -5543,14 +5543,14 @@
                 "amphp/http-server": "^2.1",
                 "dms/phpunit-arraysubset-asserts": "dev-master",
                 "ergebnis/composer-normalize": "^2.28",
-                "friendsofphp/php-cs-fixer": "3.82.2",
+                "friendsofphp/php-cs-fixer": "3.84.0",
                 "mll-lab/php-cs-fixer-config": "5.11.0",
                 "nyholm/psr7": "^1.5",
                 "phpbench/phpbench": "^1.2",
                 "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "2.1.17",
-                "phpstan/phpstan-phpunit": "2.0.6",
-                "phpstan/phpstan-strict-rules": "2.0.4",
+                "phpstan/phpstan": "2.1.19",
+                "phpstan/phpstan-phpunit": "2.0.7",
+                "phpstan/phpstan-strict-rules": "2.0.6",
                 "phpunit/phpunit": "^9.5 || ^10.5.21 || ^11",
                 "psr/http-message": "^1 || ^2",
                 "react/http": "^1.6",
@@ -5583,7 +5583,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v15.21.2"
+                "source": "https://github.com/webonyx/graphql-php/tree/v15.21.3"
             },
             "funding": [
                 {
@@ -5591,7 +5591,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-07-10T08:58:25+00:00"
+            "time": "2025-07-24T08:17:01+00:00"
         }
     ],
     "packages-dev": [
